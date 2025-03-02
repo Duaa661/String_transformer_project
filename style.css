@@ -1,125 +1,34 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-}
-
-header .logo img {
-    height: 40px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #f1c40f;
-}
-
-#hero {
-    background: #3498db;
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+*{
     text-align: center;
 }
-
-#about, #projects, #contact {
-    padding: 50px 20px;
+body{
+    font-family: 'Roboto',sans-serif;
     text-align: center;
 }
-
-.project-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+main{
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
-.project-item {
+input{
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+.transform-output{
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: beige;
     position: relative;
-    overflow: hidden;
+    text-align: left;
 }
-
-.project-item img {
-    width: 100%;
-    transition: transform 0.3s ease-in-out;
-}
-
-.project-item:hover img {
-    transform: scale(1.1);
-}
-
-.overlay {
+.transform-output label{
+    font-size: .75rem;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    top: -.75rem;
+    left: 1rem;
+    background-color: #000;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-item:hover .overlay {
-    opacity: 1;
-}
-
-#contactForm input, #contactForm textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#contactForm button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#contactForm button:hover {
-    background-color: #2980b9;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+    padding: .25rem;
 }
