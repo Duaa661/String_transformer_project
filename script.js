@@ -1,27 +1,59 @@
-// Example of form validation and animation for form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+const input = document.querySelector('input')
 
-    // Basic form validation
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+const lowerCaseOutput = document.querySelector('#Lowercase span')
+const upperCaseOutput = document.querySelector('#uppercase span')
+const camelCaseOutput = document.querySelector('#Camelcase span')
+const pascalCaseOutput = document.querySelector('#Pascalcase span')
+const snakeCaseOutput = document.querySelector('#Snakecase span')
+const kebabCaseOutput = document.querySelector('#Kabibcase span')
+const trimOutput = document.querySelector('#trim span')
 
-    if (name === '' || email === '' || message === '') {
-        alert('Please fill in all fields');
-    } else {
-        alert('Message sent successfully');
-        // Reset form fields
-        document.getElementById('contactForm').reset();
-    }
-});
+function capitalizeString(str) {
+  if (!str) return str
+  return str[0].toUpperCase() + str.slice(1, str.length)
+}
 
-// Simple scroll animation for header
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.backgroundColor = '#2c3e50';
-    } else {
-        header.style.backgroundColor = '#333';
-    }
-});
+function camelCase(str) {
+  const lowerCaseString = str.toLowerCase()
+  const wordsArray = lowerCaseString.split(' ')
+  const finalArray = wordsArray.map((word, i) => {
+    if (i === 0) return word
+    return capitalizeString(word)
+  })
+  return finalArray.join('')
+}
+
+function pascalCase(str) {
+  const lowerCaseString = str.toLowerCase()
+  const wordsArray = lowerCaseString.split(' ')
+  const finalArray = wordsArray.map((word) => {
+    return capitalizeString(word)
+  })
+  return finalArray.join('')
+}
+
+function snakeCase(str) {
+  return str.replaceAll(' ', '_')
+}
+
+function kebabCase(str) {
+  return str.replaceAll(' ', '-')
+}
+
+function trim(str) {
+  return str.replaceAll(' ', '')
+}
+
+function updateScreen() {
+  lowerCaseOutput.innerText = input.value.trim().toLowerCase()
+  upperCaseOutput.innerText = input.value.trim().toUpperCase()
+  camelCaseOutput.innerText = camelCase(input.value.trim())
+  pascalCaseOutput.innerText = pascalCase(input.value.trim())
+  snakeCaseOutput.innerText = snakeCase(input.value.trim())
+  kebabCaseOutput.innerText = kebabCase(input.value.trim())
+  trimOutput.innerText = trim(input.value.trim())
+}
+
+updateScreen()
+
+input.addEventListener('input', updateScreen);
